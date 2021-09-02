@@ -1,15 +1,20 @@
 <template>
-  <div>
-    12333
-  </div>
+  <div>{{ url }}</div>
 </template>
-
 <script>
 export default {
   components: {},
   props: [],
+  // render(h) {
+  //   return h("h1", "we");
+  // },
+  // render() {
+  //   return <div>123</div>;
+  // },
   data() {
-    return {};
+    return {
+      url: process.env.NODE_ENV
+    };
   },
   watch: {},
   mounted() {},
