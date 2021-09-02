@@ -11,8 +11,8 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const components = {
-  login: () => import ('@/view/home/login'),
-  page1: () => import ('@/view/home/page1'),
+  login: () => import ('@/view/user/login'),
+  page1: () => import ('@/view/user/page1'),
 
 };
 export default new Router({
