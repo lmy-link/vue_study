@@ -1,5 +1,5 @@
 <template>
-  <div>123</div>
+  <div>第二个页面</div>
 </template>
 <script>
 export default {
@@ -17,11 +17,23 @@ export default {
     };
   },
   watch: {},
-  mounted() {
-    window.location.href = `${process.env.VUE_APP_PUBLIC_PATH}:9999/user.html#/`;
+  beforeRouteLeave(to, from, next) {
+    console.log(to);
+    // if (to.name == "page2") {
+    //   window.history.back();
+    // }
+    next();
   },
+  mounted() {},
   methods: {}
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.box {
+  display: flex;
+}
+.page {
+  flex: 1;
+}
+</style>

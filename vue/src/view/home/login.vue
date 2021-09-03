@@ -1,5 +1,5 @@
 <template>
-  <div>{{ url }}</div>
+  <div @click="to">{{ url }}</div>
 </template>
 <script>
 export default {
@@ -21,14 +21,16 @@ export default {
     window.removeEventListener("popstate", this.func, false);
   },
   mounted() {
-    if (window.history && window.history.pushState) {
-      history.pushState(null, null, document.URL);
-      window.addEventListener("popstate", this.func, false);
-    }
+    window.location.href = `${process.env.VUE_APP_PUBLIC_PATH}:9999/index.html#/`;
   },
   methods: {
     func() {
       console.log("111");
+    },
+    to() {
+      this.$router.push({
+        name: "page1"
+      });
     }
   }
 };

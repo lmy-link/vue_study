@@ -13,6 +13,8 @@ Vue.use(Router)
 const components = {
   login: () => import ('@/view/home/login'),
   page1: () => import ('@/view/home/page1'),
+  page2: () => import ('@/view/home/page2'),
+  page3: () => import ('@/view/home/page3'),
 
 };
 export default new Router({
@@ -29,10 +31,29 @@ export default new Router({
     {
       path: '/page1',
       name: 'page1',
+      redirect:'/page1/page2',
       meta: {
         desc: 'page1页面'
       },
       component: components.page1,
+      children:[
+        {
+          path: '/page1/page2',
+      name: 'page2',
+      meta: {
+        desc: 'page2页面'
+      },
+      component: components.page2,
+        },
+        {
+          path: '/page1/page3',
+      name: 'page3',
+      meta: {
+        desc: 'page3页面'
+      },
+      component: components.page3,
+        },
+      ]
     }
   ]
 })
